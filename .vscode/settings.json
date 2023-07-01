@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"exception": "cpp",
-		"__config": "cpp"
+		"__config": "cpp",
+		"iostream": "cpp"
 	}
 }

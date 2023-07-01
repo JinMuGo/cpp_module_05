@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 19:40:23 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ Form::Form()
 	std::cout << FORM_DFLT_CTOR << std::endl;
 }
 
-Form::Form(const std::string name, const std::int32_t sign_grade,
-		   const std::int32_t execute_grade)
+Form::Form(const std::string name, const int sign_grade,
+		   const int execute_grade)
 	: name_(name),
 	  sign_grade_(sign_grade),
 	  execute_grade_(execute_grade),
@@ -57,14 +57,14 @@ std::string Form::getName() const {
 bool Form::getSigned() const {
 	return (this->signed_);
 }
-std::int32_t Form::getSignGrade() const {
+int Form::getSignGrade() const {
 	return (this->sign_grade_);
 }
-std::int32_t Form::getExecuteGrade() const {
+int Form::getExecuteGrade() const {
 	return (this->execute_grade_);
 }
 
-void Form::checkGrade(const std::int32_t grade) const {
+void Form::checkGrade(const int grade) const {
 	if (grade < HIGH_GRADE)
 		throw Form::GradeTooHighException();
 	if (grade > LOW_GRADE)

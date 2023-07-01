@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:48:07 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 17:15:02 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ Bureaucrat::~Bureaucrat(void) {
 	std::cout << BURE_DTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, std::int32_t grade)
+Bureaucrat::Bureaucrat(const std::string name, int grade)
 	: name_(name) {
 	std::cout << BURE_CTR << std::endl;
 	this->checkGrade(grade);
 	this->grade_ = grade;
 }
 
-void Bureaucrat::checkGrade(const std::int32_t grade) const {
+void Bureaucrat::checkGrade(const int grade) const {
 	if (grade < HIGH_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > LOW_GRADE)
@@ -62,7 +62,7 @@ void Bureaucrat::decrGrade() {
 std::string const& Bureaucrat::getName() const {
 	return this->name_;
 }
-std::int32_t const& Bureaucrat::getGrade() const {
+int const& Bureaucrat::getGrade() const {
 	return this->grade_;
 }
 

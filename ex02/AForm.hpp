@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:48:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 19:42:31 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,23 @@ class Bureaucrat;
 class Form {
    private:
 	const std::string name_;
-	const std::int32_t sign_grade_;
-	const std::int32_t execute_grade_;
+	const int sign_grade_;
+	const int execute_grade_;
 	bool signed_;
 
    public:
 	Form();
 	Form(const Form& obj);
-	Form(const std::string name, const std::int32_t sign_grade, const std::int32_t execute_grade);
+	Form(const std::string name, const int sign_grade, const int execute_grade);
 	~Form();
 	Form& operator=(const Form& obj);
 	std::string getName() const;
 	bool getSigned() const;
-	std::int32_t getSignGrade() const;
-	std::int32_t getExecuteGrade() const;
+	int getSignGrade() const;
+	int getExecuteGrade() const;
 	void beSigned(Bureaucrat& obj);
-	void checkGrade(const std::int32_t grade) const;
-	void execute(Bureaucrat const & executor) const = 0;
+	void checkGrade(const int grade) const;
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	   public:
