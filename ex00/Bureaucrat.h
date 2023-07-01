@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:45:05 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 08:55:10 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 13:13:03 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@
 	DARK_CYAN "- Bureaucrat: Copy assignment operator called" RESET
 #define BURE_DTOR RED "- Bureaucrat: Destructor called" RESET
 #define BURE_MEMBER_FUNC_CALL "- Bureaucrat: member function called"
+
+#define HIGH_GRADE 1
+#define LOW_GRADE 150
 
 #endif

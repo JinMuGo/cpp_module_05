@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:44:40 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 08:53:59 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 13:41:55 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ class Bureaucrat {
    public:
 	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat& obj);
+	Bureaucrat(const std::string name, std::int32_t grade);
 	~Bureaucrat();
 	Bureaucrat& operator=(const Bureaucrat& obj);
-	const std::string& getName() const;
-	const std::uint8_t& getGrade() const;
+	std::string const& getName() const;
+	std::int32_t const& getGrade() const;
+	void	incrGrade();
+	void	decrGrade();
+	void	checkGrade(const std::int32_t grade) const;
 
 	class GradeTooHighException : public std::exception {
 	   public:
@@ -37,6 +41,9 @@ class Bureaucrat {
 	   public:
 		virtual const char* what() const throw();
 	};
+
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
 
 #endif
