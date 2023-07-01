@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 12:50:36 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 17:15:12 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 08:00:19 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,9 @@ int main(void) {
 	Form hi;
 	Form very_important_form("vif", HIGH_GRADE, 42);
 
-	try
-	{
+	try {
 		Form test("test", 4242, 2424);
-	}
-	catch(const std::exception& e)
-	{
+	} catch (const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
 

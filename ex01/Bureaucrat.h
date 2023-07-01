@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:45:05 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 17:15:42 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 07:58:34 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 #define BURE_CTOR DARK_GREEN "- Bureaucrat: constructor called" RESET
 #define BURE_CTR LIGHT_CYAN "- Bureaucrat: constructor called" RESET
 #define BURE_CPY_CTOR CYAN "- Bureaucrat: Copy constructor called" RESET
-#define BURE_CPY_ASGMT_OP_CALL \
-	DARK_CYAN "- Bureaucrat: Copy assignment operator called" RESET
+#define BURE_CPY_ASGMT_OP_CALL DARK_CYAN "- Bureaucrat: Copy assignment operator called" RESET
 #define BURE_DTOR ORANGE "- Bureaucrat: Destructor called" RESET
 #define BURE_MEMBER_FUNC_CALL "- Bureaucrat: member function called"
 

@@ -6,14 +6,14 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 08:00:10 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form()
+Form::Form(void)
 	: name_("default"),
 	  sign_grade_(LOW_GRADE),
 	  execute_grade_(LOW_GRADE),
@@ -40,7 +40,7 @@ Form::Form(const Form& obj)
 	std::cout << FORM_CPY_CTOR << std::endl;
 }
 
-Form::~Form() {
+Form::~Form(void) {
 	std::cout << FORM_DTOR << std::endl;
 }
 
@@ -51,16 +51,16 @@ Form& Form::operator=(const Form& obj) {
 	return (*this);
 }
 
-std::string Form::getName() const {
+std::string Form::getName(void) const {
 	return (this->name_);
 }
-bool Form::getSigned() const {
+bool Form::getSigned(void) const {
 	return (this->signed_);
 }
-int Form::getSignGrade() const {
+int Form::getSignGrade(void) const {
 	return (this->sign_grade_);
 }
-int Form::getExecuteGrade() const {
+int Form::getExecuteGrade(void) const {
 	return (this->execute_grade_);
 }
 
@@ -79,15 +79,15 @@ void Form::beSigned(Bureaucrat& obj) {
 	this->signed_ = true;
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
+const char* Form::GradeTooHighException::what(void) const throw() {
 	return "this Form Grade is Too High. range 1 ~ 150";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
+const char* Form::GradeTooLowException::what(void) const throw() {
 	return "this Form Grade is Too Low. range 1 ~ 150";
 }
 
-const char* Form::AlreadySigned::what() const throw() {
+const char* Form::AlreadySigned::what(void) const throw() {
 	return "this Form Already Signed.";
 }
 

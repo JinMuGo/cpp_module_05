@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:48:07 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 08:06:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,18 @@ Bureaucrat::Bureaucrat(void) {
 	std::cout << BURE_DFLT_CTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name_(obj.getName()), grade_(obj.getGrade()) {
 	std::cout << BURE_CPY_CTOR << std::endl;
-	*this = obj;
+	this->checkGrade(this->grade_);
 }
 
 Bureaucrat::~Bureaucrat(void) {
 	std::cout << BURE_DTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
-	: name_(name) {
+Bureaucrat::Bureaucrat(const std::string name, const int grade) : name_(name), grade_(grade) {
 	std::cout << BURE_CTR << std::endl;
 	this->checkGrade(grade);
-	this->grade_ = grade;
 }
 
 void Bureaucrat::checkGrade(const int grade) const {
@@ -44,26 +42,39 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	std::cout << BURE_CPY_ASGMT_OP_CALL << std::endl;
 
 	if (this != &obj) {
+		*const_cast<std::string*>(&this->name_) = obj.getName();
 		this->grade_ = obj.getGrade();
 	}
 	return *this;
 }
 
-void Bureaucrat::incrGrade() {
+void Bureaucrat::incrGrade(void) {
 	this->checkGrade(this->grade_ - 1);
 	--this->grade_;
 }
 
-void Bureaucrat::decrGrade() {
+void Bureaucrat::decrGrade(void) {
 	this->checkGrade(this->grade_ + 1);
 	++this->grade_;
 }
 
-std::string const& Bureaucrat::getName() const {
+std::string const& Bureaucrat::getName(void) const {
 	return this->name_;
 }
-int const& Bureaucrat::getGrade() const {
+int const& Bureaucrat::getGrade(void) const {
 	return this->grade_;
+}
+
+const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
+	return "Grade is Too High";
+}
+
+const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
+	return "Grade is Too Low";
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
+	return os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 }
 
 void Bureaucrat::signForm(Form& obj) {
@@ -75,17 +86,4 @@ void Bureaucrat::signForm(Form& obj) {
 		std::cerr << RED << this->getName()  << RESET " couldn't sign " RED << obj.getName()
 				  << RESET " because " << e.what() << '\n';
 	}
-}
-
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "this Bureaucrat Grade is Too High.";
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "this Bureaucrat Grade is Too Low.";
-}
-
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
-	return os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "."
-			  << std::endl;
 }
