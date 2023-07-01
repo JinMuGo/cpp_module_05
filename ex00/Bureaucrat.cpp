@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:48:07 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 07:53:30 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 08:07:05 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@ Bureaucrat::Bureaucrat(void) {
 	std::cout << BURE_DFLT_CTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name_(obj.getName()) {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name_(obj.getName()), grade_(obj.getGrade()) {
 	std::cout << BURE_CPY_CTOR << std::endl;
-	*this = obj;
+	this->checkGrade(this->grade_);
 }
 
 Bureaucrat::~Bureaucrat(void) {
 	std::cout << BURE_DTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
+Bureaucrat::Bureaucrat(const std::string name, const int grade) : name_(name), grade_(grade) {
 	std::cout << BURE_CTR << std::endl;
 	this->checkGrade(grade);
-	this->grade_ = grade;
 }
 
 void Bureaucrat::checkGrade(const int grade) const {
