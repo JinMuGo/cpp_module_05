@@ -6,12 +6,12 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 11:39:20 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 08:53:55 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 19:51:07 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONST_H
-#define CONST_H
+#ifndef COLOR_H
+#define COLOR_H
 
 #define BOLD "\e[1m"
 #define MAGENTA "\e[35m"
