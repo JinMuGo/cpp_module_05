@@ -6,17 +6,18 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:48:07 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 15:36:56 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/01 17:15:02 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) {
 	std::cout << BURE_DFLT_CTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj): name_(obj.getName()) {
+Bureaucrat::Bureaucrat(const Bureaucrat& obj) {
 	std::cout << BURE_CPY_CTOR << std::endl;
 	*this = obj;
 }
@@ -65,12 +66,23 @@ std::int32_t const& Bureaucrat::getGrade() const {
 	return this->grade_;
 }
 
+void Bureaucrat::signForm(Form& obj) {
+	try {
+		obj.beSigned(*this);
+		std::cout << GREEN << this->getName() << RESET " signed " GREEN << obj.getName()
+				  << RESET "\n";
+	} catch (const std::exception& e) {
+		std::cerr << RED << this->getName()  << RESET " couldn't sign " RED << obj.getName()
+				  << RESET " because " << e.what() << '\n';
+	}
+}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Grade is Too High";
+	return "this Bureaucrat Grade is Too High.";
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is Too Low";
+	return "this Bureaucrat Grade is Too Low.";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
