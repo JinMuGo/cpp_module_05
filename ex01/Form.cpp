@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 08:00:10 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 17:00:49 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,14 @@ Form::~Form(void) {
 
 Form& Form::operator=(const Form& obj) {
 	std::cout << FORM_CPY_ASGMT_OP_CALL << std::endl;
-	std::cout << "Form " << obj.getName() << " couldn't assign oprator form"
-			  << std::endl;
+	
+	if (this != &obj)
+	{
+		*const_cast<std::string*>(&this->name_) = obj.getName();
+		*const_cast<int*>(&this->sign_grade_) = obj.getSignGrade();
+		*const_cast<int*>(&this->execute_grade_) = obj.getExecuteGrade();
+		this->signed_ = obj.getSigned();
+	}
 	return (*this);
 }
 
