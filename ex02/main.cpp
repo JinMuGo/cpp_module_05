@@ -6,12 +6,12 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 12:50:36 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 22:07:28 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 20:57:36 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 static inline void increaseBureaucrat(Bureaucrat& obj) {
 	try {
@@ -32,6 +32,11 @@ static inline void decreaseBureaucrat(Bureaucrat& obj) {
 int main(void) {
 	Bureaucrat jgo("jgo", 1);
 	Bureaucrat sanghwal("sanghwal", 150);
+	ShrubberyCreationForm tree("target");
+
+	tree.execute(jgo);
+	increaseBureaucrat(jgo);
+	decreaseBureaucrat(sanghwal);
 
 	return (0);
 }

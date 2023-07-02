@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 17:00:55 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 17:37:34 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ void Form::checkGrade(const int grade) const {
 		throw Form::GradeTooLowException();
 }
 
+void Form::checkExec(Bureaucrat const &executor) const {
+	if (this->getSigned())
+		throw Form::AlreadySigned();
+	if (this->getExecuteGrade() < executor.getGrade())
+		throw Form::GradeTooHighException();
+}
+
 void Form::beSigned(Bureaucrat& obj) {
 	if (this->getSigned())
 		throw Form::AlreadySigned();
@@ -95,6 +102,10 @@ const char* Form::GradeTooLowException::what() const throw() {
 
 const char* Form::AlreadySigned::what() const throw() {
 	return "this Form Already Signed.";
+}
+
+const char* Form::FileOpenFail::what() const throw() {
+	return "the File open Fail.";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj) {

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 19:45:24 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 19:49:37 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 20:38:44 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 
 #include "ShrubberyCreationForm.h"
 
-class ShrubberyCreationForm: public Form {
+class ShrubberyCreationForm : public Form {
    private:
    public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string name);
 	ShrubberyCreationForm(const ShrubberyCreationForm& obj);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
+	virtual void execute(Bureaucrat const& executor) const;
 };
 
 #endif
-
-

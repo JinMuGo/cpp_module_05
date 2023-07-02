@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 19:44:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 19:52:10 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 20:29:03 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@
 #define SCF_CPY_CTOR CYAN "- ShrubberyCreationForm: Copy constructor called" RESET
 #define SCF_CPY_ASGMT_OP_CALL DARK_CYAN "- ShrubberyCreationForm: Copy assignment operator called" RESET
 #define SCF_DTOR ORANGE "- ShrubberyCreationForm: Destructor called" RESET
-#define SCF_MEMBER_FUNC_CALL "- ShrubberyCreationForm: member function called"
+#define SCF_MEMBER_FUNC_CALL MAGENTA  "- ShrubberyCreationForm: member function called" RESET
 
 #endif
