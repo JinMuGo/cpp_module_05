@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:48:07 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/01 22:06:52 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 21:18:06 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ Bureaucrat::~Bureaucrat(void) {
 	std::cout << BURE_DTOR << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade)
-	: name_(name) {
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
 	std::cout << BURE_CTR << std::endl;
 	this->checkGrade(grade);
 	this->grade_ = grade;
@@ -69,11 +68,20 @@ int const& Bureaucrat::getGrade() const {
 void Bureaucrat::signForm(Form& obj) {
 	try {
 		obj.beSigned(*this);
-		std::cout << GREEN << this->getName() << RESET " signed " GREEN << obj.getName()
-				  << RESET "\n";
+		std::cout << GREEN << this->getName() << RESET " signed " GREEN << obj.getName() << RESET "\n";
 	} catch (const std::exception& e) {
-		std::cerr << RED << this->getName()  << RESET " couldn't sign " RED << obj.getName()
-				  << RESET " because " << e.what() << '\n';
+		std::cerr << RED << this->getName() << RESET " couldn't sign " RED << obj.getName() << RESET " because "
+				  << e.what() << '\n';
+	}
+}
+
+void Bureaucrat::executeForm(Form const& form) {
+	try {
+		form.execute(*this);
+		std::cout << GREEN << this->getName() << RESET " executed " GREEN << form.getName() << RESET "\n";
+	} catch (const std::exception& e) {
+		std::cerr << RED << this->getName() << RESET " couldn't executed " RED << form.getName() << RESET " because "
+				  << e.what() << '\n';
 	}
 }
 
@@ -86,6 +94,5 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj) {
-	return os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "."
-			  << std::endl;
+	return os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 17:37:34 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 21:31:17 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void Form::checkGrade(const int grade) const {
 }
 
 void Form::checkExec(Bureaucrat const &executor) const {
-	if (this->getSigned())
-		throw Form::AlreadySigned();
+	if (this->getSigned() == false)
+		throw Form::YetSigned();
 	if (this->getExecuteGrade() < executor.getGrade())
 		throw Form::GradeTooHighException();
 }
@@ -93,15 +93,19 @@ void Form::beSigned(Bureaucrat& obj) {
 }
 
 const char* Form::GradeTooHighException::what() const throw() {
-	return "this Form Grade is Too High. range 1 ~ 150";
+	return "Grade is Too High. range 1 ~ 150";
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
-	return "this Form Grade is Too Low. range 1 ~ 150";
+	return "Grade is Too Low. range 1 ~ 150";
 }
 
 const char* Form::AlreadySigned::what() const throw() {
 	return "this Form Already Signed.";
+}
+
+const char* Form::YetSigned::what() const throw() {
+	return "this Form hasn't been Signed yet.";
 }
 
 const char* Form::FileOpenFail::what() const throw() {

@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:48:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 20:36:59 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/02 21:25:01 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ class Form {
 	};
 
 	class AlreadySigned : public std::exception {
+	   public:
+		virtual const char* what() const throw();
+	};
+
+	class YetSigned : public std::exception {
 	   public:
 		virtual const char* what() const throw();
 	};
