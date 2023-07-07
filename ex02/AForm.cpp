@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:47:58 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 21:31:17 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/07 16:12:06 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Form::Form()
 	  sign_grade_(LOW_GRADE),
 	  execute_grade_(LOW_GRADE),
 	  signed_(false) {
-	std::cout << FORM_DFLT_CTOR << std::endl;
+	std::cout << AFORM_DFLT_CTOR << std::endl;
 }
 
 Form::Form(const std::string name, const int sign_grade,
@@ -27,7 +27,7 @@ Form::Form(const std::string name, const int sign_grade,
 	  sign_grade_(sign_grade),
 	  execute_grade_(execute_grade),
 	  signed_(false) {
-	std::cout << FORM_CTOR << std::endl;
+	std::cout << AFORM_CTOR << std::endl;
 	this->checkGrade(sign_grade);
 	this->checkGrade(execute_grade);
 }
@@ -37,15 +37,15 @@ Form::Form(const Form& obj)
 	  sign_grade_(obj.getSignGrade()),
 	  execute_grade_(obj.getExecuteGrade()),
 	  signed_(obj.getSigned()) {
-	std::cout << FORM_CPY_CTOR << std::endl;
+	std::cout << AFORM_CPY_CTOR << std::endl;
 }
 
 Form::~Form() {
-	std::cout << FORM_DTOR << std::endl;
+	std::cout << AFORM_DTOR << std::endl;
 }
 
 Form& Form::operator=(const Form& obj) {
-	std::cout << FORM_CPY_ASGMT_OP_CALL << std::endl;
+	std::cout << AFORM_CPY_ASGMT_OP_CALL << std::endl;
 		
 	if (this != &obj)
 	{

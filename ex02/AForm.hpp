@@ -6,12 +6,12 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 14:48:14 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 21:25:01 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/07 16:11:55 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include "AForm.h"
 
