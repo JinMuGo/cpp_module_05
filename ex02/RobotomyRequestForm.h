@@ -6,14 +6,15 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 19:44:33 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 21:27:44 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/07 17:14:42 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_H
 #define ROBOTOMYREQUESTFORM_H
 
-#include <random>
+#include <cstdlib>
+#include <ctime>
 #include "AForm.hpp"
 #include "color.h"
 

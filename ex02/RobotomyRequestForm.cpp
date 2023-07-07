@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 20:31:44 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 21:08:36 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/07 17:17:37 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 	std::cout << RRF_CPY_ASGMT_OP_CALL << std::endl;
 	this->checkExec(executor);
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_real_distribution<double> dis(0.0, 1.0);
-	double rd_val = dis(gen);
+	std::srand(std::time(0));
+	int rd_val = std::rand();
+	double normal_val = static_cast<double>(rd_val) / RAND_MAX;
 
 	std::cout << "TATATATATATATATATATA!!! " << this->getName();
-	if (rd_val < 0.5) {
+	if (normal_val < 0.5) {
 		std::cout << " are succesfully robotomized! yay!" << std::endl;
 	} else {
 		std::cout << " are failed robotomized :( this condition might be better..." << std::endl;
