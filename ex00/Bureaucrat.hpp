@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 07:44:40 by jgo               #+#    #+#             */
-/*   Updated: 2023/07/02 07:53:27 by jgo              ###   ########.fr       */
+/*   Updated: 2023/07/19 13:17:54 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Bureaucrat {
    private:
 	const std::string name_;
 	int grade_;
+	Bureaucrat(void);
 
    public:
-	Bureaucrat(void);
 	Bureaucrat(const Bureaucrat& obj);
 	Bureaucrat(const std::string name, int grade);
 	~Bureaucrat(void);
